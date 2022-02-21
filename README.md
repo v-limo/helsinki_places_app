@@ -1,83 +1,40 @@
-# Frontend React Project
+# Group Projects
 
-This is your final project for the frontend module
+Form a group and choose one of the below projects
 
-## Instructions
+## Helsinki Maps
 
-### General
+1. Create a React application to display a map. Then using this [Helsinki API](https://open-api.myhelsinki.fi/doc) to get a data about places of interest in Helsinki, and show them on the map as markers. Keep in mind that the data return by the API is huge, so make sure to use pagination.
 
-Fork this repo, then clone the **fork** to your machine and start working on it. You can open a pull request as soon as possible (no need to wait until finished)
-For styling, you can use whatever css solution you want: css, scss, Material UI, etc.
-You need to install the css library yourself. Make sure to use node-sass version 4.14.1 if you want to use scss (using other version may break the app, so switch to the above version in that case)
+2. User can add reviews to these places on your map, for example: comments, ratings, etc. The reviews data are stored in a database of your choice and are retrieved by your API. User has to login with google to review
 
-### Step 1
+Tech stacks recommendation:
 
-Write the first custom hook, that:
+- React
+- Redux
+- `react-mapbox-gl` for displaying map
+- MongoDB or PostgreSQL
+- Mongoose or TypeORM
 
-- Fetch all the countries and return the data
-- Example usage of the hook is like this:
+Reference:
 
-```
-// countries variable will be an array of 250 countries
-const [error, countries] = useCountries()
-```
+https://user-images.githubusercontent.com/63753802/146947900-da4212dc-b056-4a36-87a6-c8299bd5e026.mov
 
-Write the second custom hook, that:
+## Project Management
 
-- Given a country name as argument (international or native), returns the data about that country from [countries APIs](https://restcountries.com/).
-- Example usage of the hook is like this:
+1. Create a project management app for keeping track of tasks, issues and assignments within a project. The user should be able to create a project, then manage the tasks and issue using drag and drop them between pipelines.
+2. User has to login with google to create a project. In a project, project owner can invite other users to collaborate. Invitation is sent through email.
 
-```
-// country variable is an object, with details about Suomi (Finland)
-const [error, country] = useCountry('Suomi')
-```
+Tech stacks recommendation:
 
-### Step 2
+- React
+- Redux
+- `react-beautiful-dnd` for drag and drop
+- MongoDB or PostgreSQL
+- Mongoose or TypeORM
+- `sendgrid` for sending email
 
-- Use the first custom hook you created to fetch all the countries data
-- Render this data in a table, you can use html table tag, or component library like Material UI
-- Make sure to split the table into smaller components: `TableHead.js`, `TableBody.js`, `TableRow.js`
+Reference:
 
-### Step 3
+![CardSeparatorV1 (2)](https://user-images.githubusercontent.com/63753802/146948755-26a0f58c-1f72-4a97-9afd-0cd57361f8ec.gif)
 
-- Integrate react router into your project and create 2 pages: `home`, and `country`
-- Homepage will contain the countries table that we created above
-- Country page will render the data about one specific country only
-- When a user click on the name of the country in the table, they will be routed to the `country` page
-
-### Step 4
-
-- Set up all the redux boilerblate for the project
-- Everything related to redux stays in one folder: reducers, actions, store
-- Think about what reducer you're going to make and write them accordingly
-- Move the state that contains all countries to redux store
-- Use `combineReducers` and have a default state for the `createStore`
-
-### Step 5
-
-- Integrate redux thunk, and fetch data from the thunk instead of inside the custom hooks
-
-### Step 6
-
-Convert the app to typescript
-
-### Step 7
-
-Take your time to implement the following features:
-
-- Implement a search bar to search for a country
-- Convert your hook to use either thunk or saga to fetch the data
-- Switch theme of the app with Context API
-- Add/remove the countries to/from favorite list using Redux, Redux-saga, Redux-thunk
-- Sort the table based on name, region, etc.
-- Maker sure the theme and favorite list is saved in local storage to persist across refreshes of the page (you can use thunk or saga to implement side effects that get state from the store and save it to local storage)
-
-## References
-
-[Demo](https://flagify.netlify.app/)
-
-Homepage:
-![homepage](media/home.png)
-
-Country page:
-![country page](media/country.png)

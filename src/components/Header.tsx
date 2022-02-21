@@ -1,14 +1,9 @@
-import { Link } from 'react-router-dom'
-import HomeIcon from '@mui/icons-material/Home'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
-import { Badge, Button } from '@mui/material'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import RemoveRedEyeSharpIcon from '@mui/icons-material/RemoveRedEyeSharp'
+import {  Button, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { selectCountries } from '../features/countries/countriesSlice'
 import {
   selectDarkmode,
   toggleDarkMode,
@@ -16,13 +11,8 @@ import {
 import LightModeIcon from '@mui/icons-material/LightMode'
 
 export default function Bar() {
-  let { countries } = useSelector(selectCountries)
   let { darkMode } = useSelector(selectDarkmode)
   let dispatch = useDispatch()
-
-  let visited = countries?.filter((c) => c.visited).length
-  let fevourite = countries?.filter((c) => c.fevourite).length
-
   return (
     <AppBar sx={{ backgroundColor: 'background.default' }}>
       <Toolbar
@@ -32,20 +22,7 @@ export default function Bar() {
           alignItems: 'center',
         }}
       >
-        <Link to='/'>
-          <HomeIcon />
-        </Link>
-
-        <Link to='/visited'>
-          <Badge badgeContent={visited} color='primary'>
-            <RemoveRedEyeSharpIcon sx={{ cursor: 'pointer' }} />
-          </Badge>
-        </Link>
-        <Link to='/fevorite'>
-          <Badge badgeContent={fevourite} color='primary'>
-            <FavoriteIcon sx={{ color: 'red', cursor: 'pointer' }} />
-          </Badge>
-        </Link>
+        <Typography variant="body1" color="primary"> My Helsinki</Typography>
         <Button onClick={() => dispatch(toggleDarkMode())}>
           {!darkMode ? <DarkModeIcon /> : <LightModeIcon />}
         </Button>

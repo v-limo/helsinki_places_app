@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { TypedUseSelectorHook, useSelector } from 'react-redux'
 
-import countriesReducer from '../features/countries/countriesSlice'
+import placesReducer from '../features/places/placesSlice'
 import darkModeReducer from '../features/darkMode/darkModeSlice'
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 export const store = configureStore({
   reducer: {
-    countries: countriesReducer,
+    places: placesReducer,
     darkMode: darkModeReducer,
   },
 })

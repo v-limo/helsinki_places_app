@@ -5,7 +5,7 @@ import img from '../img/img_not_found.jpg'
 const NoMatch = () => (
   <>
     <Box>
-      <title>404 | Country App</title>
+      <title>404 | Places App</title>
     </Box>
     <Box
       component='main'
