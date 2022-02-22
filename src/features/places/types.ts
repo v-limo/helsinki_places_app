@@ -5,8 +5,8 @@ export interface Description {
 }
 
 export interface Location {
-  lat?: number;
-  lon?: number;
+  lat: any;
+  lon: any;
   address: Address;
 }
 
@@ -45,4 +45,20 @@ export interface Place {
   tags?: Tag[];
   extra_searchwords?: any[];
   opening_hours_url?: string;
+}
+
+export interface Meta {
+  count: number;
+  next: string;
+}
+
+export interface Tag {
+  id: string;
+  name: string;
+}
+
+export interface Places {
+  meta: Meta;
+  data: Place[];
+  tags: Tag;
 }

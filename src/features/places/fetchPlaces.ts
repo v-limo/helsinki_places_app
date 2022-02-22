@@ -1,11 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { Place } from './types'
+import axios from 'axios'
+import { Places } from './types'
 
 export const fetchPlaces = createAsyncThunk(
   'places/fetchPlaces',
   async () => {
-    const response = await fetch('https://open-api.myhelsinki.fi/v2/places/?language_filter=en')
-    let data: Place[] = await response.json()
+    const response = await axios.get(`https://open-api.myhelsinki.fi/v2/places/?language_filter=en&limit=50`)
+    let data: Places = response.data
     return data
   }
 )   

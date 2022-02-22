@@ -7,19 +7,23 @@ export interface placesState {
   places: Place[],
   isLoading: boolean
   error: boolean
+  count: number
+  next: string | null
 }
 
 const initialState = {
   places: [],
   isLoading: false,
   error: false,
+  count: 0,
+  next: null
 } as placesState
 
 const placesSlice = createSlice({
   name: 'places',
   initialState,
   reducers: {
-    doSomething: (state, { payload }: PayloadAction<string>) => {
+    doSomething: (state) => {
       state.places = []
     }
   },
@@ -31,7 +35,9 @@ const placesSlice = createSlice({
     })
 
     builder.addCase(fetchPlaces.fulfilled, (state, { payload }) => {
-      state.places = payload
+      state.places = payload.data
+      state.count = payload.meta.count
+      state.next = payload.meta.next
       state.isLoading = false
     })
 
