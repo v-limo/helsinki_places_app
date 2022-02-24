@@ -8,17 +8,19 @@ export const SideBar = () => {
   const { places, error, isLoading, next, count } = useSelector(selectPlaces)
 
   return (
-    <Box sx={{ flex: 1, height: '100vh', mt: '64px', overflow: 'auto' }}>
-      <Typography variant='h5' color='primary'>
+    <Box
+      sx={{
+        flex: 1,
+        height: '100vh',
+        overflowY: 'auto',
+      }}
+    >
+      <Typography sx={{ mt: '65px' }} variant='h5' color='primary'>
         My Helsinki Places
       </Typography>
       {isLoading && <Loading />}
       {places &&
-        places.map((place) => (
-          <Card sx={{}}>
-            <PlaceCard place={place} />
-          </Card>
-        ))}
+        places.map((place) => <PlaceCard key={place.id} place={place} />)}
     </Box>
   )
 }
