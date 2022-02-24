@@ -7,7 +7,7 @@ import { Loading } from '../components/Loading'
 import { selectPlaces } from '../features/places/placesSlice'
 import { fetchPlaces } from '../features/places/fetchPlaces'
 import Map from '../components/Map'
-
+import { SideBar } from '../components/SideBar'
 
 export const Home = () => {
   const dispatch = useDispatch()
@@ -18,8 +18,18 @@ export const Home = () => {
   }, [dispatch])
 
   return (
-    <Container maxWidth='lg' className='App' sx={{ minHeight: '100vh' }}>
-      <Map /> 
-    </Container>
+    <Box
+      sx={{
+        minHeight: '100%',
+        display: 'flex',
+        // alignItems: 'center',
+        // justifyContent: 'center',
+        mixWidth: '95vw',
+        margin: 'auto',
+      }}
+    >
+      <Map />
+      <SideBar />
+    </Box>
   )
 }

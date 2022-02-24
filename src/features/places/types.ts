@@ -5,8 +5,8 @@ export interface Description {
 }
 
 export interface Location {
-  lat: any;
-  lon: any;
+  lat: number;
+  lon: number;
   address: Address;
 }
 
