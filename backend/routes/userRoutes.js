@@ -3,16 +3,7 @@ const router = express.Router()
 
 const protect = require('../middleware/authMiddleware')
 
-const {
-  getUser,
-  registerUser,
-  loginUser,
-  googleLogin,
-} = require('../controller/userController')
-
-router.post('/register', registerUser)
-router.post('/login', loginUser)
+const { googleLogin } = require('../controller/userController')
 router.post('/google-login', googleLogin)
-router.get('/', protect, getUser)
 
 module.exports = router

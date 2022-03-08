@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, memo } from 'react'
 import {
   GoogleMap,
   LoadScript,
@@ -6,13 +6,14 @@ import {
   InfoWindow,
 } from '@react-google-maps/api'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectPlaces } from '../../../src/features/places/placesSlice'
+
 import { MapStyleDark } from '../img/mapStyle'
-import { Place } from '../../../src/features/places/types'
+import { Place } from '../features/places/types'
 import { Box } from '@mui/system'
+
+import { selectPlaces, sortPlaces } from '../features/places/placesSlice'
 import { PlaceCard } from './PlaceCard'
 
-import { sortPlaces } from '../../../src/features/places/placesSlice'
 const containerStyle = {
   width: '100%',
   height: '100vh',
@@ -37,7 +38,7 @@ function Map(children: React.ReactNode) {
         >
           {places?.map((place) => (
             <Marker
-              key={place.id}
+              key={place.id + Math.random()}
               title={place?.name?.en}
               opacity={0.9}
               position={{
@@ -67,4 +68,4 @@ function Map(children: React.ReactNode) {
   )
 }
 
-export default React.memo(Map)
+export default Map

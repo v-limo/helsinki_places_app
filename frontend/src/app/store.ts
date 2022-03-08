@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
+import placesReducer from './../features/places/placesSlice'
+import darkModeReducer from './../features/darkMode/darkModeSlice'
 
-import placesReducer from '../../../src/features/places/placesSlice'
-import darkModeReducer from '../../../src/features/darkMode/darkModeSlice'
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 export const store = configureStore({

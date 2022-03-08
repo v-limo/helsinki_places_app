@@ -9,9 +9,9 @@ import {
 } from '@mui/material'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import RateReviewIcon from '@mui/icons-material/RateReview'
-
-import { Place } from '../../../src/features/places/types'
 import { Box } from '@mui/system'
+
+import { Place } from './../features/places/types'
 
 type PlaceCardProps = {
   place: Place | null
@@ -61,7 +61,12 @@ export const PlaceCard = ({ place, index }: PlaceCardProps) => {
           {place?.description?.intro?.slice(0, 50)?.concat('...')}
         </Typography>
         {place?.tags?.map(({ name }) => (
-          <Chip label={name} variant='outlined' size='small' key={place.id} />
+          <Chip
+            label={name}
+            variant='outlined'
+            size='small'
+            key={place.id + Math.random()}
+          />
         ))}
       </CardContent>
     </Card>

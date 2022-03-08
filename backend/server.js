@@ -14,7 +14,7 @@ app.use(express.json())
 
 connectDB()
 
-app.use('/api/v1/todos', require('./routes/todoRoutes'))
+app.use('/api/v1/reviews', require('./routes/reviewRoutes'))
 app.use('/api/v1/users', require('./routes/userRoutes'))
 
 app.get('/', (req, res) => {
