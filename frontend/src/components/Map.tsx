@@ -5,11 +5,14 @@ import {
   Marker,
   InfoWindow,
 } from '@react-google-maps/api'
-import { useSelector } from 'react-redux'
-import { selectPlaces } from '../features/places/placesSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectPlaces } from '../../../src/features/places/placesSlice'
 import { MapStyleDark } from '../img/mapStyle'
-import { Place } from '../features/places/types'
+import { Place } from '../../../src/features/places/types'
 import { Box } from '@mui/system'
+import { PlaceCard } from './PlaceCard'
+
+import { sortPlaces } from '../../../src/features/places/placesSlice'
 const containerStyle = {
   width: '100%',
   height: '100vh',
@@ -21,8 +24,9 @@ const center = {
 }
 
 function Map(children: React.ReactNode) {
+  const dispatch = useDispatch()
   const { places } = useSelector(selectPlaces)
-  const [selectedPlace, setSelectedPlace] = useState<Place | null>()
+  const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
   return (
     <Box sx={{ flex: 2.5 }}>
       <LoadScript googleMapsApiKey={process.env.REACT_APP_API_KEY as string}>
@@ -42,6 +46,7 @@ function Map(children: React.ReactNode) {
               }}
               onClick={() => {
                 setSelectedPlace(place)
+                dispatch(sortPlaces(place.id))
               }}
             />
           ))}
@@ -54,7 +59,7 @@ function Map(children: React.ReactNode) {
             position={center}
             onCloseClick={() => setSelectedPlace(null)}
           >
-            <p>DFSDFSDFSDF</p>
+            <PlaceCard place={selectedPlace} />
           </InfoWindow>
         </GoogleMap>
       </LoadScript>

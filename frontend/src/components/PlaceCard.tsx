@@ -10,14 +10,15 @@ import {
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import RateReviewIcon from '@mui/icons-material/RateReview'
 
-import { Place } from '../features/places/types'
+import { Place } from '../../../src/features/places/types'
 import { Box } from '@mui/system'
 
 type PlaceCardProps = {
-  place: Place
+  place: Place | null
+  index?: number
 }
 
-export const PlaceCard = ({ place }: PlaceCardProps) => {
+export const PlaceCard = ({ place, index }: PlaceCardProps) => {
   return (
     <Card
       variant='outlined'
@@ -26,6 +27,7 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
         cursor: 'pointer',
         overflowY: 'auto',
         m: 1,
+        backgroundColor: index === 0 ? 'pallete.primary' : 'primary',
       }}
     >
       <CardHeader
@@ -51,29 +53,17 @@ export const PlaceCard = ({ place }: PlaceCardProps) => {
             </IconButton>
           </Box>
         }
-        title={place.name.en}
-        subheader={place.location?.address?.street_address}
+        title={place?.name?.en}
+        subheader={place?.location?.address?.street_address}
       />
       <CardContent>
         <Typography variant='body2' color='text.secondary'>
           {place?.description?.intro?.slice(0, 50)?.concat('...')}
         </Typography>
-        {/* <Typography variant='body2' color='text.secondary'>
-          {place.description.body !== place.description.intro &&
-            place.description.body?.slice(0, 100)?.concat('...')}
-        </Typography> */}
         {place?.tags?.map(({ name }) => (
-          <Chip label={name} variant='outlined' size='small' />
+          <Chip label={name} variant='outlined' size='small' key={place.id} />
         ))}
       </CardContent>
-      {/* <CardActions sx={{ mt: 0 }}>
-        <IconButton aria-label='rate-review' onClick={() => null}>
-          <RateReviewIcon />
-        </IconButton>{' '}
-        <IconButton aria-label='rate-review' onClick={() => null}>
-          <RateReviewIcon />
-        </IconButton>
-      </CardActions> */}
     </Card>
   )
 }

@@ -1,7 +1,6 @@
 import { Box, Button, Container, Typography } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { Link } from 'react-router-dom'
-import img from '../img/img_not_found.jpg'
 const NoMatch = () => (
   <>
     <Box>
@@ -35,7 +34,7 @@ const NoMatch = () => (
           <Box sx={{ textAlign: 'center' }}>
             <img
               alt='Under development'
-              src={img}
+              src='/../img/img_not_found.jpg'
               style={{
                 marginTop: 50,
                 display: 'inline-block',

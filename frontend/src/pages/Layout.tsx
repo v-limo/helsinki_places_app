@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import { Outlet } from 'react-router'
-import { Footer } from '../components/Footer'
-import Header from '../components/Header'
+import { Footer } from '../../frontend/src/components/Footer'
+import Header from '../../frontend/src/components/Header'
 
 function Layout() {
   return (

@@ -23,8 +23,8 @@ const placesSlice = createSlice({
   name: 'places',
   initialState,
   reducers: {
-    doSomething: (state) => {
-      state.places = []
+    sortPlaces: (state, { payload }: PayloadAction<string>) => {
+      state.places = [...state.places.filter(place => place.id === payload), ...state.places.filter(place => place.id !== payload)];
     }
   },
 
@@ -48,7 +48,7 @@ const placesSlice = createSlice({
   },
 })
 
-export const { doSomething } =
+export const { sortPlaces } =
   placesSlice.actions
 export const selectPlaces = (state: RootState) => state.places
 export default placesSlice.reducer

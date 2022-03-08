@@ -1,6 +1,6 @@
 import { Box, Card, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
-import { selectPlaces } from '../features/places/placesSlice'
+import { selectPlaces } from '../../../src/features/places/placesSlice'
 import { Loading } from './Loading'
 import { PlaceCard } from './PlaceCard'
 
@@ -20,7 +20,9 @@ export const SideBar = () => {
       </Typography>
       {isLoading && <Loading />}
       {places &&
-        places.map((place) => <PlaceCard key={place.id} place={place} />)}
+        places.map((place, index) => (
+          <PlaceCard key={place.id} index={index} place={place} />
+        ))}
     </Box>
   )
 }
