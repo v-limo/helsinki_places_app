@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-import { USerType } from "./types";
+import { USerType } from "../../types/userTypes";
 
 const API_URL = '/api/v1/users/google-login'
 

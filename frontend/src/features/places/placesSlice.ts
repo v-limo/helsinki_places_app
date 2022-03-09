@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../../app/store'
 import { fetchPlaces } from './fetchPlaces'
-import { Place } from './types'
+import { Place } from '../../types/placeTypes'
 
 export interface placesState {
   places: Place[],

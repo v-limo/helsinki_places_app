@@ -4,12 +4,16 @@ const ReviewSchema = mongoose.Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
     place: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Number,
       required: true,
-      ref: 'User',
     },
     message: { type: 'String', required: true, unique: true },
-    rate: { type: 'Number', required: true },
+    rate: {
+      type: Number,
+      required: true,
+      min: 0,
+      max: 5,
+    },
   },
   { timestamps: true }
 )

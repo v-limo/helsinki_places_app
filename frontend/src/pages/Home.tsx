@@ -8,12 +8,16 @@ import { fetchPlaces } from '../features/places/fetchPlaces'
 import { SideBar } from '../components/SideBar'
 import { Loading } from '../components/Loading'
 import Map from '../components/Map'
+import { fetchReviews } from '../features/reviews/fetchReviews'
+import { selectReview } from '../features/reviews/reviewSlice'
 
 export const Home = () => {
   const dispatch = useDispatch()
-  const { places, error, isLoading, next, count } = useSelector(selectPlaces)
+  const { places } = useSelector(selectPlaces)
+  const { reviews } = useSelector(selectReview)
 
   useEffect(() => {
+    dispatch(fetchReviews())
     dispatch(fetchPlaces())
   }, [dispatch])
 
@@ -22,8 +26,6 @@ export const Home = () => {
       sx={{
         minHeight: '100%',
         display: 'flex',
-        // alignItems: 'center',
-        // justifyContent: 'center',
         mixWidth: '95vw',
         margin: 'auto',
       }}

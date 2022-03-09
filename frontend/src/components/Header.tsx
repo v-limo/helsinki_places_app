@@ -1,7 +1,7 @@
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
-import { Button, Typography } from '@mui/material'
+import { Button, Typography, Box, Avatar } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Login } from './Login'
@@ -25,20 +25,23 @@ export default function Bar() {
           alignItems: 'center',
         }}
       >
-        <Typography variant='body1' color='primary'>
+        <Typography variant='h5' color='primary'>
           My Helsinki
         </Typography>
-        <>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {user ? (
-            <Button
-              variant='outlined'
-              color='primary'
-              onClick={() => {
-                dispatch(logout())
-              }}
-            >
-              Logout
-            </Button>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Button
+                onClick={() => {
+                  dispatch(logout())
+                }}
+              >
+                Logout
+              </Button>
+              <Avatar alt={user.name} src={user?.picture}>
+                {user?.picture || user.name?.[0].toUpperCase()}
+              </Avatar>
+            </Box>
           ) : (
             <Login />
           )}
@@ -46,9 +49,8 @@ export default function Bar() {
           <Button onClick={() => dispatch(toggleDarkMode())}>
             {!darkMode ? <DarkModeIcon /> : <LightModeIcon />}
           </Button>
-        </>
+        </Box>
       </Toolbar>
     </AppBar>
   )
 }
-

@@ -7,8 +7,7 @@ import {
 } from '@react-google-maps/api'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { MapStyleDark } from '../img/mapStyle'
-import { Place } from '../features/places/types'
+import { Place } from '../types/placeTypes'
 import { Box } from '@mui/system'
 
 import { selectPlaces, sortPlaces } from '../features/places/placesSlice'
@@ -52,16 +51,17 @@ function Map(children: React.ReactNode) {
             />
           ))}
 
-          <InfoWindow
-            // position={{
-            //   lat: selectedPlace?.location?.lat as number,
-            //   lng: selectedPlace?.location?.lon as number,
-            // }}
-            position={center}
-            onCloseClick={() => setSelectedPlace(null)}
-          >
-            <PlaceCard place={selectedPlace} />
-          </InfoWindow>
+          {selectedPlace !== null && (
+            <InfoWindow
+              position={{
+                lat: selectedPlace.location.lat,
+                lng: selectedPlace.location.lon,
+              }}
+              onCloseClick={() => setSelectedPlace(null)}
+            >
+              <PlaceCard place={selectedPlace} />
+            </InfoWindow>
+          )}
         </GoogleMap>
       </LoadScript>
     </Box>

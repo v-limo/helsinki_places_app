@@ -6,10 +6,8 @@ export const Login = () => {
   const dispatch = useDispatch()
 
   const responseGoogle = (response) => {
-    console.log(response)
     if (response && response.tokenId) {
       dispatch(googleLogin({ token: response.tokenId }))
-      console.log({ token: response.tokenId })
     }
   }
 

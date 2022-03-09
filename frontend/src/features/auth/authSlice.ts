@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { USerType } from "./types";
+import { USerType } from "../../types/userTypes";
 import { RootState } from '../../app/store'
 import { googleLogin } from './googleLogin'
 

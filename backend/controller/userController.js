@@ -39,6 +39,8 @@ const googleLogin = asyncHandler(async (req, res) => {
         _id: user._id,
         username: user.username,
         email: user?.email,
+        name: user?.name,
+        picture: user.picture,
         token: generateToken(user._id, user.email),
       })
     }

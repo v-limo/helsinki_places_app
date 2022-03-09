@@ -8,12 +8,19 @@ const getAllReviews = asyncHandler(async (req, res) => {
 })
 
 const setReview = asyncHandler(async (req, res) => {
-  if (!req.body) {
+  const { rate, place, message } = req.body
+  console.log(req.body)
+  if (!rate || !place || !message) {
     res.status(400)
     throw new Error('Please add data')
   }
-  const { review } = req.body
-  const createdReview = await Review.create({ review, user: req.user.id })
+
+  const createdReview = await Review.create({
+    rate,
+    place,
+    message,
+    user: req.user.id,
+  })
   res.status(200).json(createdReview)
 })
 
