@@ -4,7 +4,7 @@
 
 Fullstack platform built with Reactjs, Express, MongoDB & Reduxtoolkit. This app includes profiles, authentication, places, reviews, and many more features. Users can view places on the map, log in with google, and login user can review, deleted, and update their own reviews.
 
-ps. this project is an expanded solution to this [requirements](./requirements.MD)
+ps. this project is an expanded solution to this [requirements](./requirements.md)
 
 ## Features
 
