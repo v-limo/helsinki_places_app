@@ -11,7 +11,7 @@ import { Place } from '../types/placeTypes'
 import { Box } from '@mui/system'
 
 import { selectPlaces, sortPlaces } from '../features/places/placesSlice'
-import { PlaceCard } from './PlaceCard'
+import { MapCard } from './MapCard'
 
 const containerStyle = {
   width: '100%',
@@ -39,15 +39,16 @@ function Map(children: React.ReactNode) {
             <Marker
               key={place.id + Math.random()}
               title={place?.name?.en}
-              opacity={0.9}
+              opacity={0.8}
               position={{
                 lat: place?.location?.lat,
                 lng: place?.location?.lon,
               }}
-              onClick={() => {
+              onMouseOver={() => {
                 setSelectedPlace(place)
                 dispatch(sortPlaces(place.id))
               }}
+              onMouseOut={() => setSelectedPlace(null)}
             />
           ))}
 
@@ -59,7 +60,7 @@ function Map(children: React.ReactNode) {
               }}
               onCloseClick={() => setSelectedPlace(null)}
             >
-              <PlaceCard place={selectedPlace} />
+              <MapCard place={selectedPlace} />
             </InfoWindow>
           )}
         </GoogleMap>

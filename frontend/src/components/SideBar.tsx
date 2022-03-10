@@ -5,7 +5,7 @@ import { Loading } from './Loading'
 import { PlaceCard } from './PlaceCard'
 
 export const SideBar = () => {
-  const { places, error, isLoading, next, count } = useSelector(selectPlaces)
+  const { places, isLoading } = useSelector(selectPlaces)
 
   return (
     <Box

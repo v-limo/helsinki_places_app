@@ -8,13 +8,8 @@ import {
   Avatar,
   Chip,
 } from '@mui/material'
-import Accordion from '@mui/material/Accordion'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import AccordionDetails from '@mui/material/AccordionDetails'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
-import RateReviewIcon from '@mui/icons-material/RateReview'
 
+import RateReviewIcon from '@mui/icons-material/RateReview'
 import { Box } from '@mui/system'
 import Modal from 'react-modal'
 import { useSelector } from 'react-redux'
@@ -22,11 +17,9 @@ import { useSelector } from 'react-redux'
 import { Place } from '../types/placeTypes'
 import { selectAuth } from '../features/auth/authSlice'
 import { AddReview } from './AddReview'
-import { selectReview } from '../features/reviews/reviewSlice'
 
 type PlaceCardProps = {
   place: Place | null
-  index?: number
 }
 
 const styles = {
@@ -41,14 +34,9 @@ const styles = {
 }
 Modal.setAppElement('#root')
 
-export const PlaceCard = ({ place, index }: PlaceCardProps) => {
+export const MapCard = ({ place}: PlaceCardProps) => {
   const { user } = useSelector(selectAuth)
-  const { reviews } = useSelector(selectReview)
   const [modalIsOpen, setIsOpen] = useState(false)
-
-  const revieww = reviews?.filter(
-    (review) => review?.place && review?.place === Number(place?.id)
-  )
 
   const openModal = () => user && setIsOpen(true)
   const closeModal = () => {
@@ -63,7 +51,6 @@ export const PlaceCard = ({ place, index }: PlaceCardProps) => {
         cursor: 'pointer',
         overflowY: 'auto',
         m: 1,
-        backgroundColor: index === 0 ? 'pallete.primary' : 'primary',
       }}
     >
       <CardHeader
@@ -81,9 +68,6 @@ export const PlaceCard = ({ place, index }: PlaceCardProps) => {
         }
         action={
           <Box>
-            <IconButton aria-label='rate-review' onClick={() => null}>
-              {user && <ThumbUpAltIcon />}
-            </IconButton>
             <IconButton aria-label='rate-review' onClick={openModal}>
               <RateReviewIcon color={user ? 'primary' : 'disabled'} />
             </IconButton>
@@ -113,24 +97,6 @@ export const PlaceCard = ({ place, index }: PlaceCardProps) => {
       >
         <AddReview closeModal={closeModal} place={place?.id} />
       </Modal>
-
-      {/* Reviews */}
-      <Accordion disabled={revieww.length === 0}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls='panel1a-content'
-          id='panel1a-header'
-        >
-          <Typography>Reviews</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          {revieww?.map((review) => (
-            <Box key={review._id}>
-              <Typography>{review.message}</Typography>
-            </Box>
-          ))}
-        </AccordionDetails>
-      </Accordion>
     </Card>
   )
 }
