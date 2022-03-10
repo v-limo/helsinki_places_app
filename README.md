@@ -22,13 +22,13 @@ ps. this project is an expanded solution to this [requirements](./requirements.m
 <p align="center">
 
 - Demo before login
-<img src="./demos/demoBeforeLogin.png" width="80%" />
+<img src="./demos/demoBeforeLogin.png" width="100%" />
 </p>
 
 <p align="center">
 
 - Demo After login
-<img src="./demos/demoAfterLogin.png" width="80%" />
+<img src="./demos/demoAfterLogin.png" width="100%" />
 </p>
 
 ## Live demo
