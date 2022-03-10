@@ -1,40 +1,149 @@
-# Group Projects
+# [MyHelinki Map Platform]()
 
-Form a group and choose one of the below projects
+# Description
 
-## Helsinki Maps
+Fullstack platform built with Reactjs, Express, MongoDB & Reduxtoolkit. This app includes profiles, authentication, places, reviews, and many more features. Users can view places on the map, log in with google, and login user can review, deleted, and update their own reviews.
 
-1. Create a React application to display a map. Then using this [Helsinki API](https://open-api.myhelsinki.fi/doc) to get a data about places of interest in Helsinki, and show them on the map as markers. Keep in mind that the data return by the API is huge, so make sure to use pagination.
+ps. this project is an expanded solution to this [requirements](./requirements.MD)
 
-2. User can add reviews to these places on your map, for example: comments, ratings, etc. The reviews data are stored in a database of your choice and are retrieved by your API. User has to login with google to review
+## Features
 
-Tech stacks recommendation:
+- Place reviews and ratings
+- Map with places markers
+- InfoWindow with place details
+- Login with google
+- User profile with reviews
+- Review places
+- delete reviews
+- and more...
 
-- React
-- Redux
-- `react-mapbox-gl` for displaying map
-- MongoDB or PostgreSQL
-- Mongoose or TypeORM
+<br>
 
-Reference:
+<p align="center">
 
-https://user-images.githubusercontent.com/63753802/146947900-da4212dc-b056-4a36-87a6-c8299bd5e026.mov
+- Demo before login
+<img src="./demos/demoBeforeLogin.png" width="80%" />
+</p>
 
-## Project Management
+<p align="center">
 
-1. Create a project management app for keeping track of tasks, issues and assignments within a project. The user should be able to create a project, then manage the tasks and issue using drag and drop them between pipelines.
-2. User has to login with google to create a project. In a project, project owner can invite other users to collaborate. Invitation is sent through email.
+- Demo After login
+<img src="./demos/demoAfterLogin.png" width="80%" />
+</p>
 
-Tech stacks recommendation:
+## Live demo
 
-- React
-- Redux
-- `react-beautiful-dnd` for drag and drop
-- MongoDB or PostgreSQL
-- Mongoose or TypeORM
-- `sendgrid` for sending email
+A live demo of the app is hosted on Heroku.
 
-Reference:
+_Due to demo reasons and Heroku free terms, if an app receives no web traffic in a 30-minute period, it will sleep. Therefore, during the first launch, the application may take longer to load than usual, approximately 15 - 20 seconds. So please be patient and wait for the app to launch. Subsequent launches will be relatively fast._
 
-![CardSeparatorV1 (2)](https://user-images.githubusercontent.com/63753802/146948755-26a0f58c-1f72-4a97-9afd-0cd57361f8ec.gif)
+## Technology stack
 
+> ### FrontEnd
+>
+> - React
+> - React Hooks
+> - React router
+> - Redux Toolkit
+> - Mui
+> - TypeScript
+>   <br>
+
+> ### BackEnd
+>
+> - Node
+> - Express
+> - JWT
+> - MongoDB with mongoose
+> - Heroku hosting
+>   <br>
+
+## Usage
+
+Clone this repository to the desired location
+
+```Shell
+git clone https://github.com/v-limo/MyHelsinki.git
+```
+
+<br>
+
+### Env Variables
+
+Create a .env file in the root and add the following
+
+```
+NODE_ENV = development
+PORT = 5000
+SECRET_KEY = your secret key
+MONGO_URI = your mongodb uri
+CLIENT_ID = your google client id
+CLIENT_SECRET =  your google client secret
+
+```
+
+cd to frontend, create a .env file in the root
+
+```
+cd frontend
+```
+
+and add the following
+
+```
+
+REACT_APP_API_KEY = google api key
+REACT_APP_API_GOOGLE_CLIENT_ID = google client id
+REACT_APP_CLIENT_ID=  google client id
+
+```
+
+### Install Dependencies (frontend & backend)
+
+```
+npm install
+cd frontend
+npm install
+
+```
+
+### Run
+
+```
+# Run frontend (:3000) & backend (:5000)
+npm run dev
+```
+
+```
+# Run backend only
+npm run server
+```
+
+```
+# Run frontend only
+npm run client
+```
+
+## Build & Deploy
+
+```
+# Create frontend prod build
+cd frontend
+npm run build
+```
+
+### Contributing
+
+Contributions are highly appreciated. In general, I follow the "fork-and-pull" Git workflow.
+
+1. **Fork** this repo
+2. **Clone** the project to your own machine
+3. **Commit** changes to your own branch
+4. **Push** your work back up to your fork
+5. **Submit** a Pull request so that I can review your changes
+
+**NOTE:** Be sure to merge the latest from "upstream" before making a pull request!
+
+### License
+
+MIT license
