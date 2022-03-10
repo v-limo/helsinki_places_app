@@ -9,7 +9,3 @@ Tech stacks recommendation:
 - `react-mapbox-gl` for displaying map
 - MongoDB or PostgreSQL
 - Mongoose or TypeORM
-
-Reference:
-
-https://user-images.githubusercontent.com/63753802/146947900-da4212dc-b056-4a36-87a6-c8299bd5e026.mov
