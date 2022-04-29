@@ -1,6 +1,6 @@
-# [MyHelinki Map Platform]()
+## MyHelinki Map Platform
 
-# Description
+## Description
 
 Fullstack platform built with Reactjs, Express, MongoDB & Reduxtoolkit. This app includes profiles, authentication, places, reviews, and many more features. Users can view places on the map, log in with google, and login user can review, deleted, and update their own reviews.
 
@@ -17,6 +17,14 @@ ps. this project is an expanded solution to this [requirements](./requirements.m
 - delete reviews
 - and more...
 
+
+## [Live demo](https://myhelsinki.netlify.app)
+
+A live demo of the app is hosted on [Heroku](https://my-helsinki.herokuapp.com) and [etlify](https://myhelsinki.netlify.app).
+
+
+_Due to demo reasons and Heroku free terms, if an app receives no web traffic in a 30-minute period, it will sleep. Therefore, during the first launch, the application may take longer to load than usual, approximately 15 - 20 seconds. So please be patient and wait for the app to launch. Subsequent launches will be relatively fast._
+
 <br>
 
 <p align="center">
@@ -30,14 +38,6 @@ ps. this project is an expanded solution to this [requirements](./requirements.m
 - Demo After login
 <img src="./frontend/src/demos/demoAfterLogin.png" width="100%" />
 </p>
-
-## [Live demo](https://myhelsinki.netlify.app)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c5052d9a-d600-4f16-bc6e-cbed2413035f/deploy-status)](https://app.netlify.com/sites/myhelsinki/deploys)
-A live demo of the app is hosted on Heroku.
-
-_Due to demo reasons and Heroku free terms, if an app receives no web traffic in a 30-minute period, it will sleep. Therefore, during the first launch, the application may take longer to load than usual, approximately 15 - 20 seconds. So please be patient and wait for the app to launch. Subsequent launches will be relatively fast._
-
 ## Technology stack
 
 > ### FrontEnd
