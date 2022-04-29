@@ -1,4 +1,4 @@
-import { Box, Card, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { selectPlaces } from './../features/places/placesSlice'
 import { Loading } from './Loading'

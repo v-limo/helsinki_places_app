@@ -8,7 +8,7 @@ import {
   Rating,
   TextareaAutosize,
 } from '@mui/material'
-import { useSelector, useDispatch } from 'react-redux'
+import {  useDispatch } from 'react-redux'
 import { createReview } from '../features/reviews/createReview'
 
 type AddReviewprops = {
@@ -19,7 +19,7 @@ type AddReviewprops = {
 export const AddReview = ({ closeModal, place }: AddReviewprops) => {
   const dispatch = useDispatch()
   const [message, setMessage] = useState('')
-  const [rate, setRate] = useState(3)
+  const [rate, setRate] = useState(4)
 
   const handleSubmit = (e: any) => {
     e.preventDefault()

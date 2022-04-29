@@ -22,17 +22,18 @@ ps. this project is an expanded solution to this [requirements](./requirements.m
 <p align="center">
 
 - Demo before login
-<img src="./demos/demoBeforeLogin.png" width="100%" />
+<img src="./frontend/src/demos/demoBeforeLogin.png" width="100%" />
 </p>
 
 <p align="center">
 
 - Demo After login
-<img src="./demos/demoAfterLogin.png" width="100%" />
+<img src="./frontend/src/demos/demoAfterLogin.png" width="100%" />
 </p>
 
-## Live demo
+## [Live demo](https://myhelsinki.netlify.app)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c5052d9a-d600-4f16-bc6e-cbed2413035f/deploy-status)](https://app.netlify.com/sites/myhelsinki/deploys)
 A live demo of the app is hosted on Heroku.
 
 _Due to demo reasons and Heroku free terms, if an app receives no web traffic in a 30-minute period, it will sleep. Therefore, during the first launch, the application may take longer to load than usual, approximately 15 - 20 seconds. So please be patient and wait for the app to launch. Subsequent launches will be relatively fast._
@@ -63,7 +64,7 @@ _Due to demo reasons and Heroku free terms, if an app receives no web traffic in
 Clone this repository to the desired location
 
 ```Shell
-git clone https://github.com/v-limo/MyHelsinki.git
+git clone git@github.com:v-limo/helsinki_places_app.git
 ```
 
 <br>
@@ -110,18 +111,14 @@ npm install
 ### Run
 
 ```
-# Run frontend (:3000) & backend (:5000)
+
+# Run backend only
 npm run dev
 ```
 
 ```
-# Run backend only
-npm run server
-```
-
-```
 # Run frontend only
-npm run client
+npm start
 ```
 
 ## Build & Deploy
